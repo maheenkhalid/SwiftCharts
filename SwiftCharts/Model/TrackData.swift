@@ -41,25 +41,6 @@ struct TrackData: Identifiable {
     static func monthlyStreamsData() -> [TrackData] {
         let totalItems = 3 // monthly data for past three months
         var streamData = [TrackData]()
-        let todayComponents = Calendar.current.dateComponents([.year, .month, .day], from: .now)
-        for i in 0..<totalItems {
-            let randomStreams = Double.random(in: 100000...1000000)
-            let randomDate = Calendar.current.date(
-                from: .init(
-                    year: todayComponents.year,
-                    month: (todayComponents.month ?? 0) - i,
-                    day: todayComponents.day
-                )
-            )
-            let data = TrackData(
-                trackName: "Espresso",
-                artist: "Sabrina Carpenter",
-                streamsPlayed: randomStreams,
-                date: randomDate ?? .now
-            )
-            streamData.append(data)
-        }
-
         return streamData
     }
 

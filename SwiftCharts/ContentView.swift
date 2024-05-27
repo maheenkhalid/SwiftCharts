@@ -9,23 +9,16 @@ struct ContentView: View {
             HStack{
                 Button(action: {
                     interval = .daily
-                    print("Daily")
+                    print("Next Week")
                 }, label: {
-                    Text("Daily")
+                    Text("Next Week")
                 })
                 .frame(maxWidth: .infinity)
                 Button(action: {
                     interval = .monthly
-                    print("Monthly")
+                    print("Last Week")
                 }, label: {
-                    Text("Monthly")
-                })
-                .frame(maxWidth: .infinity)
-                Button(action: {
-                    interval = .yearly
-                    print("Yearly")
-                }, label: {
-                    Text("Yearly")
+                    Text("Last week")
                 })
                 .frame(maxWidth: .infinity)
             }
