@@ -35,7 +35,7 @@ struct TrackData: Identifiable {
                 streamsPlayed: randomStreams,
                 date: randomDate ?? .now
             )
-            streamData.append(data)
+            streamData.insert(data, at: 0)
         }
 
         return streamData
