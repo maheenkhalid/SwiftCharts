@@ -3,7 +3,6 @@ import Charts
 
 struct BarChart: View {
     @State private var chartSelection: String? = "Forever"
-    @Binding var interval: IntervalType
 
     let data = TrackData.dummyData
 

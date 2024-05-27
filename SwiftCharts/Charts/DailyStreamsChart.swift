@@ -2,36 +2,17 @@ import SwiftUI
 import Charts
 
 struct DailyStreamsChart: View {
-    @Binding var interval: IntervalType
+    @Binding var viewModel: ContentView.ViewModel
     var body: some View {
         Chart {
-            ForEach(getData()) { trackData in
-                LineMark(
+            ForEach(viewModel.plottableData) { trackData in
+                BarMark(
                     x: .value("Date", trackData.date),
                     y: .value("Streams", trackData.streamsPlayed)
                 )
-                .interpolationMethod(.catmullRom)
-                AreaMark(
-                    x: .value("Date", trackData.date),
-                    y: .value("Streams", trackData.streamsPlayed)
-                )
-                .interpolationMethod(.catmullRom)
             }
         }
+        .frame(height: 300)
+        .padding()
     }
-
-    private func getData() -> [TrackData] {
-        switch interval {
-        case .daily:
-            TrackData.dailyStreamsData()
-        case .monthly:
-            TrackData.monthlyStreamsData()
-        case .yearly:
-            TrackData.monthlyStreamsData()
-        }
-    }
-}
-
-#Preview {
-    DailyStreamsChart(interval: .constant(.daily))
 }
